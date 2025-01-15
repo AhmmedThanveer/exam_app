@@ -83,12 +83,13 @@ class ResultsScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: isPassed ? Colors.green : Colors.red,
+                          color: isPassed ? Util().greenColor : Util().redColor,
                           fontFamily: "Baloo Medium",
                         ),
                       ),
-                      progressColor: isPassed ? Colors.green : Colors.red,
-                      backgroundColor: Colors.grey.shade300,
+                      progressColor:
+                          isPassed ? Util().greenColor : Util().redColor,
+                      backgroundColor: Util().UnprogressColor,
                       circularStrokeCap: CircularStrokeCap.round,
                     ),
                     SizedBox(
@@ -100,7 +101,7 @@ class ResultsScreen extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 30,
-                              color: Colors.green,
+                              color: Util().greenColor,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Baloo Semibold",
                             ),
@@ -110,7 +111,9 @@ class ResultsScreen extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 30,
-                              color: isPassed ? Colors.green : Colors.red,
+                              color: isPassed
+                                  ? Util().greenColor
+                                  : Util().redColor,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Baloo Medium",
                             ),

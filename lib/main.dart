@@ -1,11 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:sample_quiz/Screens/Exam%20Listing%20Screen/examlistscreen.dart';
+
 import 'package:sample_quiz/Screens/Splash%20Screen/splashscreen.dart';
-import 'View Model/Provider/examprovider.dart';
-// import 'Screens/examscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +26,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Exam App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          // primarySwatch: Colors.blue,
+          ),
       home: SplashScreen(exams: exams),
     );
   }

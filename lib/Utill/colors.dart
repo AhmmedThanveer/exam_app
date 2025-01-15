@@ -12,4 +12,6 @@ class Util {
   Color suvtextColor = const Color(0xffB4BAB7);
   Color bordrColor = const Color(0xFFEFEFEF);
   Color processingColor = const Color(0xFFFFBD35);
+  Color greenColor = Colors.green;
+  Color redColor = Colors.red;
 }

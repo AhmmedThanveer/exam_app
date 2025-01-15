@@ -6,7 +6,7 @@ class ExamProvider extends ChangeNotifier {
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   int selectedOptionIndex = -1; // Initialize with an invalid index
-
+  Map<int, int> _selectedOptions = {};
   // Timer variables
   late Duration examDuration;
   late Duration remainingTime;
@@ -27,6 +27,16 @@ class ExamProvider extends ChangeNotifier {
       }
     });
   }
+  int getSelectedOptionIndexForQuestion(int questionIndex) {
+    return _selectedOptions[questionIndex] ??
+        -1; // Return -1 if no option is selected
+  }
+
+  // Set selected option for a particular question
+  void setSelectedOptionForQuestion(int questionIndex, int optionIndex) {
+    _selectedOptions[questionIndex] = optionIndex;
+    notifyListeners(); // Notify listeners to update the UI
+  }
 
   void submitAnswer(int selectedOptionIndex) {
     final question = exam['questions'][currentQuestionIndex];
@@ -41,6 +51,21 @@ class ExamProvider extends ChangeNotifier {
       currentQuestionIndex++;
     }
     notifyListeners();
+  }
+
+  Map<int, int> _selectedAnswers =
+      {}; // Tracks selected options for each question
+
+  int getSelectedOption(int questionIndex) {
+    return _selectedAnswers[questionIndex] ??
+        -1; // Return -1 if no option selected
+  }
+
+  void goToPreviousQuestion() {
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      notifyListeners();
+    }
   }
 
   void stopTimer() {

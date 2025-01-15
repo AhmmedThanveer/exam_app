@@ -7,7 +7,7 @@ import 'package:sample_quiz/Screens/Exam%20Screen/examscreen.dart';
 class ExamListScreen extends StatelessWidget {
   final List<dynamic> exams;
 
-  ExamListScreen({required this.exams});
+  ExamListScreen({super.key, required this.exams});
 
   @override
   Widget build(BuildContext context) {

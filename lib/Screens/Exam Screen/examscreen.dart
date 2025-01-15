@@ -36,7 +36,12 @@ class ExamScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10),
           child: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              if (examProvider.currentQuestionIndex > 0) {
+                examProvider.goToPreviousQuestion();
+              } else {
+                Navigator.pop(
+                    context); // If on the first question, go back to the previous screen
+              }
             },
             icon: Row(
               children: [
@@ -70,28 +75,6 @@ class ExamScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Timer
-          // Container(
-          //   color: Colors.grey[200],
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       const Text(
-          //         'Time Remaining:',
-          //         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          //       ),
-          //       Text(
-          //         '${examProvider.remainingTime.inMinutes}:${(examProvider.remainingTime.inSeconds % 60).toString().padLeft(2, '0')}',
-          //         style: const TextStyle(
-          //           fontSize: 16,
-          //           fontWeight: FontWeight.bold,
-          //           color: Colors.red,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           SizedBox(
             height: 10,
           ),
@@ -126,60 +109,6 @@ class ExamScreen extends StatelessWidget {
                 text: "Next",
               ),
             ),
-          //
-          // Expanded(
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(16.0),
-          //     child: Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         Text(
-          //           'Question ${examProvider.currentQuestionIndex + 1}/${examProvider.exam['questions'].length}',
-          //           style: const TextStyle(
-          //               fontSize: 18, fontWeight: FontWeight.bold),
-          //         ),
-          //         const SizedBox(height: 20),
-          //         Text(
-          //           currentQuestion['text'],
-          //           style: const TextStyle(fontSize: 16),
-          //         ),
-          //         const SizedBox(height: 20),
-          //         // Options for the current question
-          //         for (int i = 0; i < currentQuestion['options'].length; i++)
-          //           ListTile(
-          //             title: Text(currentQuestion['options'][i]),
-          //             leading: Radio<int>(
-          //               value: i,
-          //               groupValue: null,
-          //               onChanged: (value) {
-          //                 examProvider.submitAnswer(value!);
-          //               },
-          //             ),
-          //           ),
-          //         // Submit Button (visible only on the last question)
-          // if (examProvider.currentQuestionIndex ==
-          //     examProvider.exam['questions'].length - 1)
-          //   Padding(
-          //     padding: const EdgeInsets.symmetric(vertical: 16.0),
-          //     child: ElevatedButton(
-          //       onPressed: () {
-          //         Navigator.pushReplacement(
-          //           context,
-          //           MaterialPageRoute(
-          //             builder: (context) => ResultsScreen(
-          //               totalQuestions: examProvider.exam['questions'].length,
-          //               correctAnswers: examProvider.correctAnswers,
-          //             ),
-          //           ),
-          //         );
-          //       },
-          //       child: const Text('Submit'),
-          //     ),
-          //   ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
