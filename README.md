@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Quiz App
 
 Overview
@@ -37,3 +38,21 @@ Custom UI Design:
 Includes custom styles using a utility class for colors.
 
 Uses the "Baloo Medium" font for a unique look and feel.
+=======
+# sample_quiz
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+>>>>>>> 28e0d3e (first commit)
